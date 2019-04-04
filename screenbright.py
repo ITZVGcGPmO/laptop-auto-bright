@@ -20,7 +20,7 @@ while True:
     avg.append(lvl)
     if (len(avg) > 5):
         avg.pop(0)
-        brightness = int(((sum(avg)/float(len(avg))*10)+brightness)/2)
+        brightness = int(((sum(avg)/len(avg)*10)+brightness)/2)
         outbright = str(14+clamp(2**brightness,0,900))
         if (lastbr != brightness):
             open('/sys/class/backlight/intel_backlight/brightness', 'w').write(outbright)

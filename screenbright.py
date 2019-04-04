@@ -21,8 +21,8 @@ while True:
     if (len(avg) > 5):
         avg.pop(0)
         brightness = int(((sum(avg)/len(avg)*10)+brightness)/2)
-        outbright = str(14+clamp(2**brightness,0,900))
         if (lastbr != brightness):
+            outbright = str(14+clamp(2**brightness,0,900))
             open('/sys/class/backlight/intel_backlight/brightness', 'w').write(outbright)
             print('set brightness to '+str(brightness)+' ('+outbright+')')
         lastbr = brightness
